@@ -9,7 +9,7 @@ const Welcome = () => (
   <div className="min-h-screen bg-gradient-to-tr from-blue-50 to-blue-100 py-6 px-4">
     <div className="max-w-md mx-auto bg-white rounded-2xl shadow-xl border border-gray-200 p-5 text-center mb-4">
       <h1 className="text-4xl font-bold text-blue-700 mb-2">Welcome!</h1>
-      <h2 className="text-3xl font-semibold text-gray-700">CRUD App</h2>
+      <h2 className="text-3xl font-semibold text-gray-700">User Manager</h2>
     </div>
     <Form />
   </div>
