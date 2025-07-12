@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { UserPlus } from 'lucide-react'; // optional: icon library (npm install lucide-react)
+import { UserPlus } from 'lucide-react'; 
 import { Link } from 'react-router-dom';
 
 const Form = () => {
@@ -45,8 +45,6 @@ const Form = () => {
         <h2 className="text-3xl font-bold text-center text-blue-700 mb-4">
            Create New User
         </h2>
-
-        {/* Name */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
           <input
@@ -59,8 +57,6 @@ const Form = () => {
             className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none"
           />
         </div>
-
-        {/* Email */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
           <input
@@ -73,8 +69,6 @@ const Form = () => {
             className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none"
           />
         </div>
-
-        {/* Phone */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
           <input
@@ -89,8 +83,6 @@ const Form = () => {
             className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none"
           />
         </div>
-
-        {/* Submit Button */}
         <button
           type="submit"
           className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition duration-200"

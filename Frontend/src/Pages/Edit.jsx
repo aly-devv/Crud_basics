@@ -31,7 +31,7 @@ const EditUser = () => {
   };
 
   const handleEditClick = (user) => {
-    setSelectedUser({ ...user }); // clone to avoid direct state mutation
+    setSelectedUser({ ...user });
     setShowModal(true);
   };
 
@@ -53,61 +53,63 @@ const EditUser = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-tr from-blue-50 to-blue-100 py-6 px-4">
-      <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-6">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-3xl font-bold text-blue-700">👥 User List</h2>
+      <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl p-4 sm:p-6 overflow-x-auto">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-blue-700">👥 User List</h2>
           <input
             type="search"
             placeholder="Search by username"
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+            className="w-full sm:w-auto px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
 
-        <table className="w-full border border-gray-200 rounded-lg overflow-hidden shadow-sm">
-          <thead className="bg-blue-100 text-blue-800 text-left">
-            <tr>
-              <th className="p-3">Name</th>
-              <th className="p-3">Email</th>
-              <th className="p-3">Phone</th>
-              <th className="p-3">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredUsers.map((user) => (
-              <tr key={user._id} className="border-b hover:bg-gray-100">
-                <td className="p-3">{user.name}</td>
-                <td className="p-3">{user.email}</td>
-                <td className="p-3">{user.phone}</td>
-                <td className="p-3">
-                  <button
-                    onClick={() => handleEditClick(user)}
-                    className="bg-yellow-400 text-white px-3 py-1 rounded-md mr-2 hover:bg-yellow-500"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(user._id)}
-                    className="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600"
-                  >
-                    Delete
-                  </button>
-                </td>
+        <div className="w-full overflow-x-auto">
+          <table className="w-full min-w-[600px] border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+            <thead className="bg-blue-100 text-blue-800 text-left">
+              <tr>
+                <th className="p-3">Name</th>
+                <th className="p-3">Email</th>
+                <th className="p-3">Phone</th>
+                <th className="p-3">Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {filteredUsers.map((user) => (
+                <tr key={user._id} className="border-b hover:bg-gray-100">
+                  <td className="p-3">{user.name}</td>
+                  <td className="p-3">{user.email}</td>
+                  <td className="p-3">{user.phone}</td>
+                  <td className="p-3 flex flex-wrap gap-2">
+                    <button
+                      onClick={() => handleEditClick(user)}
+                      className="bg-yellow-400 text-white px-3 py-1 rounded-md hover:bg-yellow-500"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDelete(user._id)}
+                      className="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
 
         {filteredUsers.length === 0 && (
           <p className="text-gray-600 text-center mt-4">No users found.</p>
         )}
       </div>
 
-      {/* Modal for editing user */}
+      
       {showModal && selectedUser && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black/40  flex justify-center items-center z-50">
-          <div className="bg-white p-6 rounded-xl shadow-xl w-full max-w-md">
+        <div className="fixed top-0 left-0 w-full h-full bg-black/40 flex justify-center items-center z-50 px-4">
+          <div className="bg-white p-6 sm:p-8 rounded-xl shadow-xl w-full max-w-md">
             <h3 className="text-xl font-semibold mb-4 text-blue-600">Edit User</h3>
             <form onSubmit={handleUpdateUser} className="space-y-4">
               <input

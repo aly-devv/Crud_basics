@@ -21,7 +21,6 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/create" element={<Form />} />
-        {/* You can add more routes here like /edit/:id or /users */}
         <Route path='/edit' element={<Edit/>}/>
       </Routes>
 
